@@ -1,0 +1,41 @@
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let student of students; let i = index">
+    {{ student.name }}
+    {{ student.surname }}
+    <button
+      class="btn btn-danger float-end"
+      (click)="nedalyvauja(student.name, student.surname, i)"
+    >
+      Nedalyvauja
+    </button>
+    <button
+      class="btn btn-success float-end me-3"
+      (click)="dalyvauja(student.name, student.surname, i)"
+    >
+      Dalyvauja
+    </button>
+  </li>
+</ul>
+
+<!-- local reference padarysime ir viewChild dekatoriu  -->
+<hr />
+<div class="card">
+  <div
+    class="card-header"
+    (click)="pridetiVisible = !pridetiVisible"
+    style="cursor: pointer"
+  >
+    Prideti nauja studenta
+  </div>
+  <div class="card-body" *ngIf="pridetiVisible">
+    <div class="mb-3">
+      <label class="form-label">Vardas</label>
+      <input type="text" class="form-control" #inputVardas />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Pavarde</label>
+      <input type="text" class="form-control" #inputPavarde />
+    </div>
+    <button class="btn btn-success" (click)="addStudent()">Prideti</button>
+  </div>
+</div>

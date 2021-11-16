@@ -1,0 +1,107 @@
+<div class="row mt-3">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">KMI Skaiciuokle</div>
+      <div class="card-body">
+        <div>KMI skaiciavimo forma</div>
+        <hr />
+        <div class="mb-3">
+          <div>
+            <label class="form-label">Svoris (kg)</label>
+            <input type="number" class="form-control" [(ngModel)]="svoris" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Ugis (cm)</label>
+            <input type="number" class="form-control" [(ngModel)]="ugis" />
+          </div>
+          <button class="btn btn-success" (click)="kmi()">Skaiciuoti</button>
+          <hr />
+          <div
+            class="alert alert-secondary"
+            *ngIf="rezultatasAppear()"
+            [ngClass]="{
+              'bg-success text-white': rezultatas >= 18.5 && rezultatas <= 25,
+              'bg-info': rezultatas >= 25 && rezultatas <= 30,
+              'bg-warning': rezultatas >= 30 && rezultatas <= 35,
+              'bg-primary text-white': rezultatas >= 35 && rezultatas <= 40,
+              'bg-danger': rezultatas >= 40 && rezultatas <= 99
+            }"
+          >
+            KMI: {{ rezultatas.toFixed(2) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">KMI=svoris(kg)/ūgis(m)2</div>
+      <div class="card-body">
+        <table class="table">
+          <tr>
+            <th>KMI reikšmė</th>
+            <th></th>
+            <th>Ligų rizika</th>
+            <th></th>
+          </tr>
+          <tr
+            [ngClass]="{
+              'alert-secondary': rezultatas >= 18.5 && rezultatas <= 25
+            }"
+          >
+            <td>18.5 - 25</td>
+            <td>Normalus svoris</td>
+            <td>Nėra</td>
+            <td class="badge rounded-pill bg-success rounded">-</td>
+          </tr>
+          <tr
+            [ngClass]="{
+              'alert-secondary': rezultatas >= 25 && rezultatas <= 30
+            }"
+          >
+            <td>25 - 30</td>
+            <td>Antsvoris</td>
+            <td>Nedidelė, stengtis, kad nedidėtų</td>
+            <td class="badge rounded-pill bg-info">-</td>
+          </tr>
+          <tr
+            [ngClass]="{
+              'alert-secondary': rezultatas >= 30 && rezultatas <= 35
+            }"
+          >
+            <td>30 - 35</td>
+            <td>Io nutukimas</td>
+            <td>Padidėjusi, būtina mažinti svorį</td>
+            <td class="badge rounded-pill bg-warning">-</td>
+          </tr>
+          <tr
+            [ngClass]="{
+              'alert-secondary': rezultatas >= 35 && rezultatas <= 40
+            }"
+          >
+            <td>35 - 40</td>
+            <td>IIo nutukimas</td>
+            <td>Didelė, būtina mažinti svorį</td>
+            <td class="badge rounded-pill bg-primary">-</td>
+          </tr>
+          <tr
+            [ngClass]="{
+              'alert-secondary': rezultatas >= 40 && rezultatas <= 99
+            }"
+          >
+            <td>40 - 99</td>
+            <td>IIIo (liguistas) nutukimas</td>
+            <td>Labai didelė, būtina mažinti</td>
+            <td class="badge rounded-pill bg-danger">-</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="card mt-2" *ngIf="rezultatas < 18.5 && rezultatas !== 0">
+      <div class="card-header alert-danger">Wow</div>
+      <div class="card-body">
+        <p>You need to eat something!!!</p>
+      </div>
+    </div>
+  </div>
+</div>

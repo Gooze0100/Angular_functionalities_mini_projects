@@ -1,0 +1,14 @@
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let product of products">
+    <div class="row">
+      <div class="col-md-12">{{ product.name }} - {{ product.price }} EUR</div>
+      <hr />
+      <div class="col-md-12">
+        <app-order-product
+          [productName]="product.name"
+          [productPrice]="product.price"
+        ></app-order-product>
+      </div>
+    </div>
+  </li>
+</ul>

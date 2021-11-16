@@ -1,0 +1,16 @@
+<div class="card mt-3">
+  <div class="card-header" (click)="visible = !visible" style="cursor: pointer">
+    Create new user
+  </div>
+  <div class="card-body" *ngIf="visible">
+    <div class="mb-3">
+      <input type="text" placeholder="First Name" class="form-control" #name />
+    </div>
+    <div class="mb-3">
+      <input type="text" placeholder="Surname" class="form-control" #surname />
+    </div>
+    <button class="btn btn-light border" (click)="addUser(name, surname)">
+      Create new user
+    </button>
+  </div>
+</div>

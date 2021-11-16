@@ -1,0 +1,166 @@
+<div class="container">
+  <div class="row">
+    <div class="offset-md-3 col-md-6">
+      <div class="card mt-3">
+        <div class="card-header">Register your childrens to nature club!</div>
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+            <div class="mb-3">
+              <label class="form-label">Child's name:</label>
+              <input
+                type="text"
+                class="form-control"
+                required
+                ngModel
+                name="name"
+                minlength="3"
+                maxlength="15"
+                #name="ngModel"
+              />
+              <span class="help-block" *ngIf="!name.valid && name.touched"
+                >Name too short or too long! Mandatory field!</span
+              >
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Child's birth year:</label>
+              <input
+                type="number"
+                class="form-control"
+                required
+                ngModel
+                name="birthYear"
+                #birthYear="ngModel"
+                [min]="maxYear"
+                [max]="minYear"
+              />
+              <span
+                class="help-block"
+                *ngIf="!birthYear.valid && birthYear.touched"
+                >Child's should be from 12 to 18! Mandatory field!</span
+              >
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Child's gender:</label>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  id="exampleRadios1"
+                  name="exampleRadios"
+                  checked
+                />
+                <label class="form-check-label" for="exampleRadios1">
+                  Male
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  id="exampleRadios2"
+                  type="radio"
+                  name="exampleRadios"
+                />
+                <label class="form-check-label" for="exampleRadios2">
+                  Female
+                </label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Your email:</label>
+              <input
+                type="text"
+                class="form-control"
+                required
+                ngModel
+                name="email"
+                #email="ngModel"
+              />
+              <span class="help-block" *ngIf="!email.valid && email.touched"
+                >Your email is not valid! Mandatory field!</span
+              >
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Your phone number:</label>
+              <input
+                type="text"
+                class="form-control"
+                minlength="10"
+                maxlength="12"
+                placeholder="+37060000000"
+                ngModel
+                name="phone"
+                #phone="ngModel"
+              />
+              <span class="help-block" *ngIf="!phone.valid && phone.touched"
+                >Your phone is not valid!</span
+              >
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Child's class:</label>
+              <select
+                class="form-select"
+                required
+                ngModel
+                name="class"
+                #class="ngModel"
+              >
+                <option selected>Open this select menu</option>
+                <option value="5">Fifth class</option>
+                <option value="6">Sixth class</option>
+                <option value="7">Seventh class</option>
+                <option value="8">Eight class</option>
+                <option value="9">Ninth class</option>
+                <option value="10">Tenth class</option>
+                <option value="11">Eleventh class</option>
+                <option value="12">Twelfth class</option>
+              </select>
+              <span class="help-block" *ngIf="!class.valid && class.touched"
+                >Selected class is not valid! Mandatory field!</span
+              >
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Child's school name:</label>
+              <input
+                type="text"
+                class="form-control"
+                required
+                maxlength="32"
+                ngModel
+                name="schoolsName"
+                #schoolsName="ngModel"
+              />
+              <span
+                class="help-block"
+                *ngIf="!schoolsName.valid && schoolsName.touched"
+                >School name is incorrect! Mandatory field!</span
+              >
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Discount code:</label>
+              <input
+                type="text"
+                class="form-control"
+                ngModel
+                name="discountCode"
+                #discountCode="ngModel"
+                validationDiscount
+              />
+              <span
+                class="help-block"
+                *ngIf="!discountCode.valid && discountCode.touched"
+                >Discount code is not valid!</span
+              >
+            </div>
+            <button
+              class="btn btn-primary"
+              [disabled]="!form.valid"
+              type="submit"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card mt-3">
+        <div class="card-header">Students registration</div>
+        <div class="card-body">
+          <form [formGroup]="studForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter first name"
+                formControlName="firstName"
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter last name"
+                formControlName="lastName"
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter email"
+                formControlName="email"
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Enter code"
+                formControlName="code"
+              />
+            </div>
+            <button
+              class="btn btn-dark"
+              type="submit"
+              [disabled]="!studForm.valid"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

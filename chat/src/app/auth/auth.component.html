@@ -1,0 +1,57 @@
+<div class="col-md-6 mx-auto mt-3">
+  <div class="card">
+    <div class="card-header">
+      {{ isLogin == true ? "Prisijunkite" : "Registruokites" }}
+    </div>
+    <div class="card-body">
+      <div class="alert alert-danger" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+      <form
+        #authForm="ngForm"
+        (ngSubmit)="onSubmit(authForm)"
+        *ngIf="!isLoading"
+      >
+        <div class="form-group mb-3">
+          <label for="" class="form-label">El pasto adresas:</label>
+          <input
+            type="email"
+            class="form-control"
+            ngModel
+            name="email"
+            required
+            email
+          />
+        </div>
+        <div class="form-group mb-3">
+          <label for="" class="form-label">Slaptazodis</label>
+          <input
+            type="password"
+            class="form-control"
+            ngModel
+            name="password"
+            required
+            minlength="6"
+          />
+        </div>
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!authForm.valid"
+        >
+          {{ isLogin ? "Prisijungti" : "Registruotis" }}
+        </button>
+        <button
+          class="btn btn-secondary float-end"
+          type="button"
+          (click)="onSwitch()"
+        >
+          {{ isLogin ? "Registruotis ?" : "Prisijungti ?" }}
+        </button>
+      </form>
+      <div *ngIf="isLoading">
+        <h5>Loading...</h5>
+      </div>
+    </div>
+  </div>
+</div>

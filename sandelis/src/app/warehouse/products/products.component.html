@@ -1,0 +1,44 @@
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let product of products">
+    {{ product.name }}
+    <button class="btn btn-success float-end" (click)="order(product.name)">
+      Uzsakyti
+    </button>
+  </li>
+</ul>
+<hr />
+<div class="card">
+  <div
+    class="card-header"
+    (click)="pridetiVisible = !pridetiVisible"
+    style="cursor: pointer"
+  >
+    Prideti nauja preke
+  </div>
+  <div class="card-body" *ngIf="pridetiVisible">
+    <div class="mb-3">
+      <label class="form-label">Pavadinimas</label>
+      <input type="text" class="form-control" #inputPavadinimas />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Kaina</label>
+      <input type="number" class="form-control" #inputKaina />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Kiekis</label>
+      <input type="number" class="form-control" #inputKiekis />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Rezervuotas kiekis</label>
+      <input type="number" class="form-control" #inputRezervuota />
+    </div>
+    <button
+      class="btn btn-success"
+      (click)="
+        addProduct(inputPavadinimas, inputKaina, inputKiekis, inputRezervuota)
+      "
+    >
+      Prideti
+    </button>
+  </div>
+</div>

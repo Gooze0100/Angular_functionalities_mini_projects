@@ -1,0 +1,84 @@
+<app-add-task (updateTasks)="onUpdate()"></app-add-task>
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">
+      <div class="col-md-12">
+        <h5 class="mt-2" style="display: inline-block">Tasks list</h5>
+        <button class="btn btn-danger float-end" (click)="deleteTasks()">
+          Delete all tasks
+        </button>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="alert alert-danger mt-2" *ngIf="tasks.length === 0">
+        There is no tasks left... :(
+      </div>
+      <div class="alert alert-info mt-2" *ngIf="isLoading">
+        Tasks list is loading...
+      </div>
+      <ul
+        class="list-group offset-md-1 col-md-12"
+        style="display: inline-block"
+      >
+        <li
+          class="list-group-item col-md-5 me-3 mb-3 border-0"
+          *ngFor="let task of tasks"
+          style="display: inline-block"
+        >
+          <div class="card">
+            <div class="card-header">
+              <input
+                type="text"
+                class="form-control"
+                value="{{ task.taskName }}"
+                readonly
+              />
+            </div>
+            <div class="card-body">
+              <select
+                class="form-select mb-1"
+                value="{{ task.select }}"
+                disabled
+                #selected
+              >
+                <option>Not started</option>
+                <option>In porgress</option>
+                <option>Done</option>
+              </select>
+              <textarea
+                cols="80"
+                rows="5"
+                class="form-control col-md-12"
+                readonly
+                >{{ task.task }}</textarea
+              >
+              <div class="row">
+                <div class="col-md-12 mt-2">
+                  <button
+                    class="btn btn-success me-2"
+                    (click)="changeStatus(task.id, selected.value)"
+                    [disabled]="selected.disabled ? 'disabled' : null"
+                  >
+                    Save
+                  </button>
+                  <button
+                    class="btn btn-info me-2"
+                    (click)="editStatus(selected, task.id)"
+                  >
+                    Edit status
+                  </button>
+                  <button
+                    class="btn btn-warning me-2 float-end"
+                    (click)="deleteTask(task.id)"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

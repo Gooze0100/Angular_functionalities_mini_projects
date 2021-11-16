@@ -1,0 +1,11 @@
+input.ng-invalid.ng-touched.ng-dirty,
+select.ng-invalid.ng-touched.ng-dirty {
+  border: 1px solid crimson;
+}
+.help-block {
+  color: crimson;
+}
+
+input.ng-pending {
+  border: 1px solid teal;
+}

@@ -1,0 +1,22 @@
+<div class="card mb-3">
+  <div class="card-header">Kelimas kvadratu</div>
+  <div class="card-body">
+    <div class="mb-3">
+      <label class="form-label">Iveskite skaiciu</label>
+      <input type="number" class="form-control" [(ngModel)]="skaicius" />
+    </div>
+    <button class="btn btn-success mb-3" (click)="keltiKvadratu()">
+      Skaiciuoti
+    </button>
+    <hr />
+    <div class="mb-3">
+      <label class="form-label">Skaicius kvadratu</label>
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="kvadratu"
+        readonly
+      />
+    </div>
+  </div>
+</div>

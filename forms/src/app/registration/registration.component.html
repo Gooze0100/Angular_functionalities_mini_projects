@@ -1,0 +1,124 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card mt-3">
+        <div class="card-header">Registration From</div>
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+            <div class="mb-3">
+              <label class="form-label">Enter your name:</label>
+              <input
+                type="text"
+                class="form-control"
+                ngModel
+                name="name"
+                required
+                maxlength="15"
+                #name="ngModel"
+              />
+              <div *ngIf="!name.valid && name.touched" class="help-block">
+                Name not entered!
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Enter your email address:</label>
+              <input
+                type="email"
+                class="form-control"
+                ngModel
+                name="email"
+                required
+                email
+                #email="ngModel"
+              />
+              <div *ngIf="!email.valid && email.touched">
+                <span *ngIf="email.errors.required" class="help-block"
+                  >Email is incorrect!</span
+                >
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Enter your age:</label>
+              <input
+                type="number"
+                class="form-control"
+                ngModel
+                name="age"
+                required
+                min="16"
+                #age="ngModel"
+              />
+              <span *ngIf="!age.valid && age.touched" class="help-block"
+                >Age not entered!</span
+              >
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Enter your password:</label>
+              <input
+                type="password"
+                class="form-control"
+                ngModel
+                name="password"
+                required
+                #firstPassword="ngModel"
+              />
+              <div
+                *ngIf="!firstPassword.valid && firstPassword.touched"
+                class="help-block"
+              >
+                Password not entered!
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Reenter your password:</label>
+              <input
+                type="password"
+                class="form-control"
+                ngModel
+                name="password"
+                required
+                #secondPassword="ngModel"
+              />
+              <div
+                *ngIf="!secondPassword.valid && secondPassword.touched"
+                class="help-block"
+              >
+                Password not entered!
+              </div>
+              <button
+                class="btn btn-secondary mt-3"
+                type="button"
+                (click)="randomPassword()"
+              >
+                Random password
+              </button>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Select your gender:</label>
+              <select
+                class="form-control"
+                ngModel
+                name="gender"
+                required
+                #gender="ngModel"
+              >
+                <option value="0">Vyras</option>
+                <option value="1">Moteris</option>
+              </select>
+              <div *ngIf="!gender.valid && gender.touched" class="help-block">
+                Gender not selected!
+              </div>
+              <button
+                class="btn btn-success mt-3"
+                [disabled]="!form.valid"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

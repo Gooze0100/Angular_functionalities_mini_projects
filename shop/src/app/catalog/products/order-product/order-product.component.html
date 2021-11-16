@@ -1,0 +1,20 @@
+<!-- <div style="margin: 10px; border: crimson 1px dashed">
+  <p>order-product works!</p>
+  uzsakyti produkta
+  <button (click)="order()">Uzsakyti produkta</button>
+</div> -->
+<div class="row">
+  <div class="col-md-6">
+    <!-- cia yra pridetas local reference #userIndex -->
+    <select class="form-control" name="user" #userIndex>
+      <!-- <option>Jonas</option> -->
+      <!-- ciai generuoja options ir pvz indeksa priskiria value reiksme -->
+      <option *ngFor="let user of users; let i = index" [value]="i">
+        {{ user.name }} {{ user.surname }}
+      </option>
+    </select>
+  </div>
+  <div class="col-md-6">
+    <button class="btn btn-success" (click)="order(userIndex)">Uzsakyti</button>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="offset-md-2 col-md-8 mb-3">
+  <div class="card mt-3">
+    <div class="card-header">
+      <h5>Add task</h5>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control mb-2"
+          placeholder="Enter task title..."
+          [(ngModel)]="taskName"
+        />
+        <textarea
+          class="form-control mb-2"
+          cols="30"
+          rows="3"
+          placeholder="Enter task..."
+          [(ngModel)]="task"
+        ></textarea>
+        <select class="form-select" [(ngModel)]="select">
+          <option selected>Select status...</option>
+          <option>Not started</option>
+          <option>In porgress</option>
+          <option>Done</option>
+        </select>
+      </div>
+      <button
+        class="btn btn-primary"
+        (click)="postTask()"
+        [disabled]="
+          taskName === '' || task === '' || select === 'Select status...'
+        "
+      >
+        Add task
+      </button>
+      <button
+        class="btn btn-secondary float-end"
+        (click)="emptyFields()"
+        [disabled]="taskName === '' || task === ''"
+      >
+        Empty fields
+      </button>
+    </div>
+  </div>
+</div>

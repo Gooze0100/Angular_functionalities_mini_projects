@@ -1,0 +1,70 @@
+<div class="row mt-3">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">{{ country.Name }}</div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label class="form-label">Kodas:</label>
+          <input
+            type="text"
+            class="form-control"
+            [value]="country.Code"
+            readonly
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Regionas:</label>
+          <input
+            type="text"
+            class="form-control"
+            [value]="country.Region"
+            readonly
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Plotas:</label>
+          <input
+            type="text"
+            class="form-control"
+            [value]="country.SurfaceArea"
+            readonly
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Nepriklausomybes metai:</label>
+          <input
+            type="text"
+            class="form-control"
+            [value]="country.IndepYear"
+            readonly
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Populiacija:</label>
+          <input
+            type="text"
+            class="form-control"
+            [value]="country.Population"
+            readonly
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Tiketina gyvenimo trukme:</label>
+          <input
+            type="text"
+            class="form-control"
+            [value]="country.LifeExpectancy"
+            readonly
+          />
+        </div>
+        <a routerLink="/" class="btn btn-primary">Back</a>
+        <!--  -->
+        <a
+          [routerLink]="['/country', id, 'edit']"
+          class="btn btn-secondary float-end"
+          >Edit</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

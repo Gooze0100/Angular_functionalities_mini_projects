@@ -1,0 +1,15 @@
+<div class="row mb-2 ms-2">
+  <div class="col-md-6">
+    <select name="user" class="form-control" #userIndex>
+      <option selected>Pasirinkite darbuotoja</option>
+      <option *ngFor="let user of users; let i = index" [value]="i">
+        {{ user.name }} {{ user.surname }}
+      </option>
+    </select>
+  </div>
+  <div class="col-md-6">
+    <button class="btn btn-light border" (click)="addTaskToUser(userIndex)">
+      Assign task
+    </button>
+  </div>
+</div>

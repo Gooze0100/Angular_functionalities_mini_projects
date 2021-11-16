@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-header">Prideti nauja vartotoja</div>
+  <div class="card-body">
+    <div class="mb-3">
+      <label class="form-label">Vardas</label>
+      <input type="text" class="form-control" #name />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Pavarde</label>
+      <input type="text" class="form-control" #surname />
+    </div>
+    <button class="btn btn-success" (click)="addUser(name, surname)">
+      Prideti
+    </button>
+  </div>
+</div>

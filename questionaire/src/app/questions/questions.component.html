@@ -1,0 +1,35 @@
+<div class="offset-md-3 col-md-6">
+  <div class="card mt-3">
+    <div class="alert alert-warning" *ngIf="time === 0 && end !== true">
+      Time is out!
+    </div>
+    <div class="card-header">
+      Questionaire
+      <div class="float-end">
+        Time left: <b style="color: red">{{ time }}</b> sek., Correct answers
+        {{ correctQuestion }} /
+        {{ allQuestions }}
+      </div>
+    </div>
+    <div class="card-body" *ngIf="!end">
+      <div>{{ number1 }} {{ symbol }} {{ number2 }} = ?</div>
+      <hr />
+      <div class="col-md-6">
+        <input
+          type="number"
+          class="form-control mb-3"
+          placeholder="Enter answer..."
+          #input
+          [(ngModel)]="inputAnswers"
+        />
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="answers(input.value)"
+        >
+          Answer
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

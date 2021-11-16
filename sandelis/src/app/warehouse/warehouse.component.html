@@ -1,0 +1,61 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">Prekiu sandelis</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card mt-3" *ngFor="let category of warehouseData">
+            <div class="card-header">
+              {{ category.name }}
+            </div>
+            <div class="card-body">
+              <app-products
+                (orderEmitter)="onOrder($event)"
+                [products]="category.products"
+              ></app-products>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mt-3 mb-3">
+  <div class="card-header">Prideti nauja kategorija</div>
+  <div class="card-body">
+    <div class="mb-3">
+      <label class="form-label">Kategorijos pavadinimas</label>
+      <input type="text" class="form-control" #categoryName />
+    </div>
+    <button class="btn btn-success" (click)="addCategory()">Prideti</button>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">Sandelio likutis:</div>
+    <div class="card-body">
+      <div *ngFor="let category of warehouseData">
+        <b> {{ category.name }}: </b>
+        <span *ngFor="let product of category.products"
+          >{{ product.name }}:
+          <b
+            ><i>{{ product.count }}</i></b
+          >,
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12 mt-3">
+  <div class="card">
+    <div class="card-header">Uzsakymai</div>
+    <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of orders">{{ item }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="row mt-3">
+  <div class="offset-md-3 col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="list-group">
+          <a
+            class="list-group-item list-group-item-action"
+            *ngFor="let country of world; let i = index"
+            [routerLink]="['/country', i]"
+            routerLinkActive="router-link-active"
+            >{{ country.Name }}</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

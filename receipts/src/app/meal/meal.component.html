@@ -1,0 +1,82 @@
+<div class="row mt-3">
+  <div class="offset-md-3 col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5>
+          {{ meal.name }}
+        </h5>
+      </div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label class="form-label">
+            <b> Description:</b>
+          </label>
+          <textarea
+            rows="5"
+            class="form-control"
+            [value]="meal.description"
+            readonly
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">
+            <b> Proteins:</b>
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            [value]="meal.proteins"
+            readonly
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">
+            <b> Carbs:</b>
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            [value]="meal.carbs"
+            readonly
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">
+            <b>Fat:</b>
+          </label>
+          <input type="text" class="form-control" [value]="meal.fat" readonly />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">
+            <b>Calories:</b>
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            [value]="meal.calories"
+            readonly
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">
+            <b>Ingredients:</b>
+          </label>
+          <textarea
+            rows="1"
+            class="form-control"
+            *ngFor="let ingridients of meal.ingredients"
+            readonly
+            >{{ ingridients.name }} {{ ingridients.amount
+            }}{{ ingridients.units }}</textarea
+          >
+        </div>
+        <a routerLink="/" class="btn btn-primary">Back</a>
+        <a
+          [routerLink]="['/meal', id, 'edit']"
+          class="btn btn-success float-end"
+          >Edit</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

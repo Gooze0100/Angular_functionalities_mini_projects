@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+.dropdown {
+  display: inline-block;
+}
+
+input.ng-invalid.ng-touched.ng-dirty,
+select.ng-invalid.ng-touched.ng-dirty {
+  border: 1px solid crimson;
+}
+.help-block {
+  color: crimson;
+}
+
+input.ng-pending {
+  border: 1px solid teal;
+}

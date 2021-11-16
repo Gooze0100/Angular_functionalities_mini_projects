@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-header" (click)="visible = !visible" style="cursor: pointer">
+    Create new task
+  </div>
+  <div class="card-body" *ngIf="visible">
+    <div class="mb-3">
+      <input
+        type="text"
+        placeholder="Project name"
+        class="form-control"
+        #project
+      />
+    </div>
+    <div class="mb-3">
+      <textarea
+        class="form-control"
+        placeholder="Description"
+        cols="30"
+        rows="5"
+        #description
+      ></textarea>
+    </div>
+    <button
+      class="btn btn-light border"
+      (click)="createTask(project, description)"
+    >
+      Create new task
+    </button>
+  </div>
+</div>

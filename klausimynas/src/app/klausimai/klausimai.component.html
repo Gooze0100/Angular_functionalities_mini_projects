@@ -1,0 +1,29 @@
+<div class="col-md-12">
+  <div class="card mt-3">
+    <div class="card-header">
+      Testas
+      <div class="float-end" *ngIf="pabaiga">
+        Atsakyta: {{ teisingi }} / {{ viso }}
+      </div>
+    </div>
+    <div class="card-body" *ngIf="!pabaiga">
+      <div class="">
+        {{ klausimai[ak].klausimas }}
+        <div class="float-end">
+          Liko: {{ laikas }} sek., Atsakyta: {{ teisingi }} / {{ viso }}
+        </div>
+      </div>
+      <hr />
+      <div class="list-group">
+        <button
+          type="button"
+          class="list-group-item list-group-item-action"
+          *ngFor="let atsakymas of klausimai[ak].atsakymai; let i = index"
+          (click)="speti(i)"
+        >
+          {{ atsakymas }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

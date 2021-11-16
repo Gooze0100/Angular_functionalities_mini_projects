@@ -1,0 +1,91 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">Studentai</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card mt-3" *ngFor="let groups of studentaiData">
+            <div class="card-header">
+              {{ groups.group }} / {{ groups.location }} /
+              {{ groups.start_date }}
+            </div>
+            <div class="card-body">
+              <app-dalyvavimas
+                (studentDalyvaujaEmitter)="onDalyvauja($event)"
+                (studentNedalyvaujaEmitter)="onNedalyvauja($event)"
+                [students]="groups.students"
+              ></app-dalyvavimas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mt-3 mb-3">
+  <div class="card-header">Prideti nauja grupe</div>
+  <div class="card-body">
+    <div class="mb-3">
+      <label class="form-label">Grupes pavadinimas</label>
+      <input type="text" class="form-control" #groupTitle />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Grupes pradzios data</label>
+      <input type="text" class="form-control" #groupDate />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Grupes vieta</label>
+      <input type="text" class="form-control" #groupLocation />
+    </div>
+    <button
+      class="btn btn-success"
+      (click)="addGroup(groupTitle, groupLocation, groupDate)"
+    >
+      Prideti
+    </button>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        Dalyvaujantys
+        <span class="badge rounded-pill bg-secondary text-white float-end">{{
+          studentaiDalyvauja.length
+        }}</span>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let dalyvauja of studentaiDalyvauja"
+          >
+            {{ dalyvauja }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        Nedalyvaujantys
+        <span class="badge rounded-pill bg-secondary text-white float-end">{{
+          studentaiNedalyvauja.length
+        }}</span>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let nedalyvauja of studentaiNedalyvauja"
+          >
+            {{ nedalyvauja }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
